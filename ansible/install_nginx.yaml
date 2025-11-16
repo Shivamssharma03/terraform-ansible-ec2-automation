@@ -1,0 +1,40 @@
+- name: Install NGINX + Node.js 20 + PM2 on Ubuntu
+  hosts: nginx
+  become: yes
+
+  tasks:
+
+    # ---------------------------
+    # Install NGINX
+    # ---------------------------
+    - name: Install NGINX
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Start and enable NGINX
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    # ---------------------------
+    # Install Node.js 20
+    # ---------------------------
+    - name: Add NodeSource repo for Node.js 20
+      shell: curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+
+    - name: Install Node.js 20
+      apt:
+        name: nodejs
+        state: present
+        update_cache: yes
+
+    # ---------------------------
+    # Install PM2 globally
+    # ---------------------------
+    - name: Install PM2
+      npm:
+        name: pm2
+        global: yes

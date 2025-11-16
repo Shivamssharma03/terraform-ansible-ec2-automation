@@ -1,14 +1,15 @@
 
 # Terraform + Ansible Automated EC2 Deployment
 
-<p align="left">
-  <img src="https://img.shields.io/badge/Terraform-Automation-844FBA?logo=terraform" alt="Terraform Badge" />
-  <img src="https://img.shields.io/badge/Ansible-Configuration%20Management-EE0000?logo=ansible" alt="Ansible Badge" />
-  <img src="https://img.shields.io/badge/AWS-EC2%20Deployment-FF9900?logo=amazon-aws" alt="AWS Badge" />
-  <img src="https://img.shields.io/badge/Ubuntu-24.04%20LTS-E95420?logo=ubuntu" alt="Ubuntu Badge" />
-  <img src="https://img.shields.io/badge/DevOps-End%20to%20End%20Automation-0A66C2" alt="DevOps Badge" />
-  <img src="https://img.shields.io/badge/License-MIT-green" alt="License Badge" />
-</p>
+<div align="left">
+  <img src="https://img.shields.io/badge/Terraform-Automation-844FBA?logo=terraform" alt="Terraform Badge">
+  <img src="https://img.shields.io/badge/Ansible-Configuration%20Management-EE0000?logo=ansible" alt="Ansible Badge">
+  <img src="https://img.shields.io/badge/AWS-EC2%20Deployment-FF9900?logo=amazon-aws" alt="AWS Badge">
+  <img src="https://img.shields.io/badge/Ubuntu-24.04%20LTS-E95420?logo=ubuntu" alt="Ubuntu Badge">
+  <img src="https://img.shields.io/badge/DevOps-End%20to%20End%20Automation-0A66C2" alt="DevOps Badge">
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="License Badge">
+</div>
+
 
 
 This repository contains an automated DevOps workflow that provisions EC2 instances using **Terraform**, then automatically installs and configures **Nginx**, **Apache**, **Node.js 20**, and **PM2** using **Ansible**.
@@ -92,18 +93,18 @@ null_resource + local-exec
 ## ▶️ Usage
 
 ### Initialize Terraform
-```bash
-terraform init
-```
+
+`terraform init`
+
 
 ### Validate
-```bash
-terraform validate
-```
+
+`terraform validate`
+
 
 ### Apply
 ```bash
-terraform apply -auto-approve
+`terraform apply -auto-approve`
 ```
 
 ---
@@ -111,7 +112,7 @@ terraform apply -auto-approve
 ## 🔐 SSH Access
 
 ```bash
-ssh -i ~/.ssh/id_rsa ubuntu@PUBLIC_IP
+`ssh -i ~/.ssh/id_rsa ubuntu@PUBLIC_IP`
 ```
 
 ---
@@ -120,12 +121,12 @@ ssh -i ~/.ssh/id_rsa ubuntu@PUBLIC_IP
 
 ### Install Nginx
 ```bash
-ansible-playbook -i inventory.ini install_nginx.yaml
+`ansible-playbook -i inventory.ini install_nginx.yaml`
 ```
 
 ### Install Apache
 ```bash
-ansible-playbook -i inventory.ini install_apache.yaml
+`ansible-playbook -i inventory.ini install_apache.yaml`
 ```
 
 ---

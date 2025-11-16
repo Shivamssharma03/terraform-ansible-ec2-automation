@@ -94,19 +94,19 @@ null_resource + local-exec
 
 ### Initialize Terraform
 ```bash
-`terraform init`
+terraform init
 ```
 
 
 ### Validate
 ```bash
-`terraform validate`
+terraform validate
 ```
 
 
 ### Apply
 ```bash
-`terraform apply -auto-approve`
+terraform apply -auto-approve
 ```
 
 ---
@@ -114,7 +114,7 @@ null_resource + local-exec
 ## 🔐 SSH Access
 
 ```bash
-`ssh -i ~/.ssh/id_rsa ubuntu@PUBLIC_IP`
+ssh -i ~/.ssh/id_rsa ubuntu@PUBLIC_IP
 ```
 
 ---
@@ -123,12 +123,12 @@ null_resource + local-exec
 
 ### Install Nginx
 ```bash
-`ansible-playbook -i inventory.ini install_nginx.yaml`
+ansible-playbook -i inventory.ini install_nginx.yaml
 ```
 
 ### Install Apache
 ```bash
-`ansible-playbook -i inventory.ini install_apache.yaml`
+ansible-playbook -i inventory.ini install_apache.yaml
 ```
 
 ---

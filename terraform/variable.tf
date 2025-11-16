@@ -21,10 +21,6 @@ variable "ami" {
 }
 
 
-# variable "public_key_path " {
-#     type = string
-  
-# }
 
 
 variable "Name" {
@@ -32,11 +28,8 @@ variable "Name" {
   type        = string
 }
 
-variable "key_name" {
-  description = "Name of the key pair in AWS"
-  type        = string
-} 
 
 variable"public_key_path"{
     type = string
 } 
+

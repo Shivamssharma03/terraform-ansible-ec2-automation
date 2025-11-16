@@ -6,9 +6,6 @@ variable "instance_type" {
   type = string
 }
 
-variable "key_name" {
-  type = string
-}
 
 variable "instance_count" {
   type    = number
@@ -24,7 +21,6 @@ variable "name" {
 }
 
 
-variable "public_key_path" {
-    type = string
-  
+variable "key_name" {
+  type = string
 }

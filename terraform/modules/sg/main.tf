@@ -1,5 +1,10 @@
+
+data "aws_vpc" "default" {
+  default = true
+}
 resource "aws_security_group" "this" {
   name        = var.sg_name
+  vpc_id = data.aws_vpc.default.id
   description = "Security group created from module"
 
   ingress {

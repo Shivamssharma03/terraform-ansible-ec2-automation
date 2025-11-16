@@ -1,5 +1,10 @@
 provider "aws" {
-  region = "ap-south-1"
+  region = "us-east-1"
+}
+
+resource "aws_key_pair" "main_key" {
+  key_name   = var.key_name
+  public_key = file(var.public_key_path)
 }
 
 ##############################
@@ -18,8 +23,7 @@ module "ec2_nginx" {
   ami              = var.ami
   instance_type    = var.instance_type
   instance_count   = 1
-  key_name         = var.key_name
-  public_key_path  = var.public_key_path      # <-- FIXED (NO file())
+  key_name         = aws_key_pair.main_key.key_name
   sg_id            = module.sg.sg_id
   name             = "nginx-server"
 }
@@ -32,8 +36,7 @@ module "ec2_apache" {
   ami              = var.ami
   instance_type    = var.instance_type
   instance_count   = 1
-  key_name         = var.key_name
-  public_key_path  = var.public_key_path      
+  key_name         = aws_key_pair.main_key.key_name
   sg_id            = module.sg.sg_id
   name             = "apache-server"
 }
@@ -66,7 +69,8 @@ resource "null_resource" "run_ansible" {
     local_file.inventory
   ]
 
-  provisioner "local-exec" {
-    command = "cd ../ansible && ansible-playbook -i inventory.ini install_nginx.yaml && ansible-playbook -i inventory.ini install_apache.yaml"
-  }
+ provisioner "local-exec" {
+  command = "sleep 40 && cd ../ansible && ansible-playbook -i inventory.ini install_nginx.yaml && ansible-playbook -i inventory.ini install_apache.yaml"
+}
+
 }

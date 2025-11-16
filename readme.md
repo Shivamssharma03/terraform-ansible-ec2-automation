@@ -93,13 +93,15 @@ null_resource + local-exec
 ## ▶️ Usage
 
 ### Initialize Terraform
-
+```bash
 `terraform init`
+```
 
 
 ### Validate
-
+```bash
 `terraform validate`
+```
 
 
 ### Apply
